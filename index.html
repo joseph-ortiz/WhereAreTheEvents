@@ -7,25 +7,34 @@
     <link href="dist/css/main.css" rel="stylesheet" type="text/css">
   </head>
   <body>
-    <div class="topnav">
-      <ul class="nav">
-        <li class="item"><a>Home</a></li>
-        <li class="item">
-          <h1>Where are the Events?</h1>
-        </li>
-        <li class="item search">
-          <input id="search" placeholder="Enter Zipcode..." value="searchText" class="search">
-          <button>Search</button>
-        </li>
-      </ul>
-    </div>
+    <header id="header">
+      <div class="topnav">
+        <ul class="nav">
+          <li class="item"><a>Home</a></li>
+          <li class="item center">
+            <h1>Where are the Events?</h1>
+          </li>
+          <li class="item search">
+            <input id="search" placeholder="Enter Zipcode..." value="searchText" class="search">
+            <button class="search">Search</button>
+          </li>
+        </ul>
+      </div>
+    </header>
     <div id="content">
+      <div class="steps">
+        <ol>
+          <li>Enter your state</li>
+          <li>Enter your hobby</li>
+          <li>Click search</li>
+          <li>Find out meetups nearby!</li>
+        </ol>
+      </div>
       <div id="map-canvas"></div>
-      <h1>Hello this comes from the index!</h1>
     </div>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script src="dist/components/jquery/dist/jquery.js"></script>
+    <script src="dist/js/googleMaps.js"></script>
+    <script src="dist/js/meetup.js"></script>
   </body>
-  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-  <script src="dist/components/jquery/dist/jquery.js"></script>
-  <script src="dist/js/googleMaps.js"></script>
-  <script src="dist/js/meetup.js"></script>
 </html>

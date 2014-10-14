@@ -6,6 +6,8 @@ var gulp = require('gulp'),
   notify = require('gulp-notify'), // send notifications to osx
   autoprefixer = require('gulp-autoprefixer');
 
+var reload = browserSync.reload;
+
 
 var paths = {
   js: 'src/js/*.js',
@@ -32,6 +34,9 @@ gulp.task('templates', function() {
       pretty: true
     }))
     .pipe(gulp.dest('./'))
+    .pipe(reload({
+      stream: true
+    }))
     .pipe(notify({
       message: 'JADE processed!'
     }));
@@ -45,6 +50,9 @@ gulp.task('css', function() {
   return gulp.src(paths.css)
     .pipe(plumber())
     .pipe(gulp.dest(target.css))
+    .pipe(reload({
+      stream: true
+    }))
     .pipe(notify({
       message: 'CSS processed!'
     }));
@@ -67,6 +75,9 @@ gulp.task('sass', function() {
       'android 4'
     ))
     .pipe(gulp.dest(target.css)) // where to put the file
+    .pipe(reload({
+      stream: true
+    }))
     .pipe(notify({
       message: 'SCSS processed!'
     })); // notify when done
