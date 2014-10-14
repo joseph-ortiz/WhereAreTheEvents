@@ -1,0 +1,24 @@
+doctype html
+html(lang="en")
+  head
+    meta(name="viewport", content="initial-scale=1.0", user-scalable="no")
+    meta(charset="utf-8")
+    title Where are the events? - Home
+    link(href="dist/css/main.css", rel="stylesheet", type="text/css")
+  body
+    div.topnav
+      ul.nav
+        li.item
+          a Home
+        li.item
+          h1 Where are the Events?
+        li.item.search
+          input#search.search(placeholder="Enter Zipcode...", value="searchText")
+          button Search
+
+    #content
+      block content
+  script(src="https://maps.googleapis.com/maps/api/js?v=3.exp")
+  script(src="dist/components/jquery/dist/jquery.js")
+  script(src="dist/js/googleMaps.js")
+  script(src="dist/js/meetup.js")

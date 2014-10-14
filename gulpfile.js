@@ -1,18 +1,17 @@
 var gulp = require('gulp'),
-    jade = require("gulp-jade"),
-    sass = require('gulp-sass'),
-    plumber = require('gulp-plumber'),
-    browserSync = require('browser-sync'),
-    notify = require('gulp-notify'),                    // send notifications to osx
-    autoprefixer = require('gulp-autoprefixer');
+  jade = require("gulp-jade"),
+  sass = require('gulp-sass'),
+  plumber = require('gulp-plumber'),
+  browserSync = require('browser-sync'),
+  notify = require('gulp-notify'), // send notifications to osx
+  autoprefixer = require('gulp-autoprefixer');
 
 
 var paths = {
   js: 'src/js/*.js',
-  templates: 'src/*.jade/*.jade',
   css: 'src/css/*.css',
-  sass_src : 'src/sass/*.scss',
-  jade: 'src/index.jade'
+  sass_src: 'src/sass/*.scss',
+  jade: 'src/jade/index.jade'
 
 };
 
@@ -28,21 +27,27 @@ var target = {
 *******************************************************************************/
 gulp.task('templates', function() {
   return gulp.src(paths.jade)
+    .pipe(plumber())
     .pipe(jade({
       pretty: true
     }))
-    .pipe(gulp.dest(target.html))
-    .pipe(notify({message: 'JADE processed!'}));
+    .pipe(gulp.dest('./'))
+    .pipe(notify({
+      message: 'JADE processed!'
+    }));
 });
 
 /*******************************************************************************
  CSS TASK
 *******************************************************************************/
 
-gulp.task('css', function(){
+gulp.task('css', function() {
   return gulp.src(paths.css)
+    .pipe(plumber())
     .pipe(gulp.dest(target.css))
-    .pipe(notify({message: 'CSS processed!'}));
+    .pipe(notify({
+      message: 'CSS processed!'
+    }));
 });
 
 /*******************************************************************************
@@ -50,32 +55,37 @@ gulp.task('css', function(){
 *******************************************************************************/
 
 gulp.task('sass', function() {
-    gulp.src(paths.sass_src)                           // get the files
-        .pipe(plumber())                                // make sure gulp keeps running on errors
-        .pipe(sass())                                   // compile all sass
-        .pipe(autoprefixer(                             // complete css with correct vendor prefixes
-            'last 2 version',
-            '> 1%',
-            'ie 8',
-            'ie 9',
-            'ios 6',
-            'android 4'
-        ))
-        .pipe(gulp.dest(target.css))               // where to put the file
-        .pipe(notify({message: 'SCSS processed!'}));    // notify when done
+  gulp.src(paths.sass_src) // get the files
+    .pipe(plumber()) // make sure gulp keeps running on errors
+    .pipe(sass()) // compile all sass
+    .pipe(autoprefixer( // complete css with correct vendor prefixes
+      'last 2 version',
+      '> 1%',
+      'ie 8',
+      'ie 9',
+      'ios 6',
+      'android 4'
+    ))
+    .pipe(gulp.dest(target.css)) // where to put the file
+    .pipe(notify({
+      message: 'SCSS processed!'
+    })); // notify when done
 });
 
 /*******************************************************************************
-*******************************************************************************/
+ *******************************************************************************/
 
 
 /*******************************************************************************
  Javascript TASK
 *******************************************************************************/
-gulp.task('js', function(){
+gulp.task('js', function() {
   return gulp.src(paths.js)
+    .pipe(plumber())
     .pipe(gulp.dest(target.js))
-    .pipe(notify({message: 'Javascript processed!'}));
+    .pipe(notify({
+      message: 'Javascript processed!'
+    }));
 });
 
 
@@ -84,22 +94,26 @@ gulp.task('js', function(){
 *******************************************************************************/
 
 // Static server
-gulp.task('browser-sync', function () {
+gulp.task('browser-sync', function() {
   browserSync({
     server: {
-      baseDir: "./dist/"
+      baseDir: "./"
     }
   });
 });
 
 
-gulp.task('default', ['browser-sync'],function(){
-   gulp.run('templates', 'css', 'sass', 'js');
+gulp.task('default', ['browser-sync'], function() {
+  gulp.run('templates', 'css', 'sass', 'js');
 
-   gulp.watch(paths.sass_src, function() {
-        gulp.run('sass');
-   });
+  gulp.watch(paths.sass_src, function() {
+    gulp.run('sass');
+  });
 
-   //TODO:add other tasks to be watched. JADE,CSS,JS
+  gulp.watch(paths.jade, function() {
+    gulp.run('templates');
+  });
+
+  //TODO:add other tasks to be watched. JADE,CSS,JS
 
 });
