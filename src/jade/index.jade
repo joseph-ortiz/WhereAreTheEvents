@@ -2,4 +2,9 @@ extends layout
 
 block content
   include ./steps.jade
-  #map-canvas
+  section.map
+    #map-canvas
+  div.search
+    input#search.search(placeholder="Enter your Zip/State...")
+    button.search Search
+    //TODO:show on desktop but hide on mobile

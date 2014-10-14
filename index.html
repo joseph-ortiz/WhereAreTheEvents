@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta name="viewport" content="initial-scale=1.0" user-scalable="no">
+    <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
-    <title>Where are the events? - Home</title>
+    <title>Where are the emvents? - Home</title>
     <link href="dist/css/main.css" rel="stylesheet" type="text/css">
   </head>
   <body>
@@ -14,23 +14,27 @@
           <li class="item center">
             <h1>Where are the Events?</h1>
           </li>
-          <li class="item search">
-            <input id="search" placeholder="Enter Zipcode..." value="searchText" class="search">
-            <button class="search">Search</button>
-          </li>
         </ul>
       </div>
     </header>
     <div id="content">
       <div class="steps">
         <ol>
-          <li>Enter your state</li>
-          <li>Enter your hobby</li>
-          <li>Click search</li>
-          <li>Find out meetups nearby!</li>
+          <li class="one">Enter your state</li>
+          <li class="two">Enter your hobby</li>
+          <li class="three">Click search</li>
+          <li class="four">Find out meetups nearby!</li>
         </ol>
+        <button class="ok">hide</button>
       </div>
-      <div id="map-canvas"></div>
+      <section class="map">
+        <div id="map-canvas"></div>
+      </section>
+      <div class="search">
+        <input id="search" placeholder="Enter your Zip/State..." class="search">
+        <button class="search">Search</button>
+        <!--TODO:show on desktop but hide on mobile-->
+      </div>
     </div>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
     <script src="dist/components/jquery/dist/jquery.js"></script>
