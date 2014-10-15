@@ -126,9 +126,7 @@ gulp.task('default', ['browser-sync'], function() {
 
   gulp.watch(paths.jade, function() {
     gulp.run('templates');
-    reload({
-      stream: true
-    });
+    reload();
   });
 
   //TODO:add other tasks to be watched. JADE,CSS,JS

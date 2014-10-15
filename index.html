@@ -10,7 +10,7 @@
     <header id="header">
       <div class="topnav">
         <ul class="nav">
-          <li class="item"><a>Home</a></li>
+          <li class="item"><a></a></li>
           <li class="item center">
             <h1>Where are the Events?</h1>
           </li>
@@ -32,10 +32,18 @@
       </section>
       <div class="search">
         <input id="search" placeholder="Enter your Zip/State..." class="search">
+        <input id="hobby" placeholder="Enter A Hobby..." class="search">
         <button class="search">Search</button>
         <!--TODO:show on desktop but hide on mobile-->
       </div>
+      <div class="results">
+        <ul>
+          <li>Result1</li>
+          <li>Result2</li>
+        </ul>
+      </div>
     </div>
+    <script src="dist/js/lodash.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
     <script src="dist/components/jquery/dist/jquery.js"></script>
     <script src="dist/js/googleMaps.js"></script>
