@@ -129,6 +129,11 @@ gulp.task('default', ['browser-sync'], function() {
     reload();
   });
 
-  //TODO:add other tasks to be watched. JADE,CSS,JS
+  gulp.watch(paths.js, function() {
+    gulp.run('js');
+    reload();
+  });
+
+  //TODO:add other tasks to be watched. CSS
 
 });
