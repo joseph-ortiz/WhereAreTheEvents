@@ -1,43 +1,39 @@
 //TODO:add funcitonality to handle failed GoogleMAPS call!
 //TOOD:add fail 404.
-(function() {
+//(function() {
 
-  var getPosition = function(options) {
-    navigator.geolocation.getCurrentPosition(
-      lookupCountry,
-      null,
-      options);
-  };
+var getPosition = function(options) {
+  var _d = $.Deferred();
+  navigator.geolocation.getCurrentPosition(getCoords,
+    null,
+    options);
+  return _d.promise();
+};
 
-  var lookupCountry = function(position) {
-    console.log(position);
-    var latlng = new google.maps.LatLng(
-      position.coords.latitude,
-      position.coords.longitude);
 
-    var geoCoder = new google.maps.Geocoder();
-    geoCoder.geocode({
-      location: latlng
-    }, displayResults);
-  };
+var getCoords = function(position) {
+  var _d = $.Deferred();
 
-  var displayResults = function(results, status) {
-    // here you can look through results ...
-    console.log(results[0].formatted_address);
-  };
+  console.log(position);
+  var latlng = new google.maps.LatLng(
+    position.coords.latitude,
+    position.coords.longitude);
 
-  $(function() {
-    getPosition();
-  });
+  var geoCoder = new google.maps.Geocoder();
+  geoCoder.geocode({
+    location: latlng
+  }, logResults)
 
-}());
+  return _d.promise();
+}
+
+var logResults = function(results, status) {
+  // here you can look through results ...
+  console.log(results[0].formatted_address);
+}
 
 var getLocation = function() {
-  $(function() {
-    $.when(getPosition())
-      .pipe(lookupCountry)
-      .then(displayResults);
-  });
+  getPosition().then(getCoords).done(logResults);
 }
 
 function initialize() {
