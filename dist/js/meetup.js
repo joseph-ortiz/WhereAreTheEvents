@@ -1,4 +1,5 @@
 var getMeeting = function(state, hobby) {
+  var def = $.Deferred();
 
   var _url = 'http://api.meetup.com/2/open_events?' +
     'status=upcoming' +
@@ -24,16 +25,20 @@ var getMeeting = function(state, hobby) {
       url: _url
     })
     .done(function(data) {
+      def.resolve(data);
       console.log("successeful getMeetings() ajax call");
       logData(data);
-      return data;
+      //return data;
     })
     .fail(function() {
       console.log("error on getMeetings() ajax call");
+      dev.reject();
     })
     .always(function() {
       console.log("completed getMeetings() ajax call");
     });
+
+  return def.promise();
 }
 
 var logData = function(data) {
