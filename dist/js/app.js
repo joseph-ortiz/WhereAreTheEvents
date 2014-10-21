@@ -1,3 +1,16 @@
+var validate = function() {
+  var isValid = false;
+  if ($("#state").val() == "" || $("#hobby").val() === "") {
+    $("#searchButton").prop("disabled", true);
+    console.log("input validation failed");
+  } else {
+    isValid = true;
+    $("#searchButton").prop("disabled", false);
+    console.log("input validation success!");
+  }
+  return isValid;
+}
+
 $(document).ready(function() {
   //TODO:Implement Require.js
   //TODO: get user location
@@ -6,6 +19,10 @@ $(document).ready(function() {
   //TODO: map location on google Maps
   //TODO: reduce the size of the google maps image. Unnecessarily large. googlemaps opttion?
   //TODO: minify for production
+  validate();
+  $("#state , #hobby").blur(function() {
+    validate();
+  });
 
   $.when(google.maps.event.addDomListener(window, 'load', initialize))
     .then(function(data, textStatus, jqXHR) {
@@ -13,10 +30,11 @@ $(document).ready(function() {
       $("#searchButton").click(function() {
         //TODO:Get inputs
         console.log("SearchButton Clicked! ");
-        var place = $("#place").val();
-        var hobby = $("#hobby").val(); //TODO: get search criteria + validation
+        var place = $("#state").val();
+        var hobby = $("#hobby").val();
         var meetupResults = getMeeting(place, hobby); //TODO:search Get meetings;//TODO: query meetupAPI
         meetupResults.then(function(data) {
+          $("ul.results").empty();
           console.log("meetup result complete");
           _.each(data.results, function(item) {
 

@@ -5,7 +5,7 @@ var getMeeting = function(state, hobby) {
     'status=upcoming' +
     '&radius=25.0' +
     '&order=distance' +
-    '&state=' + state + //TODO: state must be lowercase, add to lowercase
+    '&state=' + state.toLowerCase() + //TODO: state must be lowercase, add to lowercase
     '&limited_events=False' +
     '&and_text=False' +
     '&text=' + hobby + //TODO:URL encode text field
@@ -15,8 +15,9 @@ var getMeeting = function(state, hobby) {
     '&format=json' +
     '&zip=30097' +
     '&page=20' +
-    '&sig_id=64460512' +
-    '&sig=cf7bb1c1f292e85fda8f2fd76eca0e4d16bec621';
+    '&key=6e10506a7034b58723d3d18151415e';
+  //'&sig_id=64460512' +
+  //'&sig=cf7bb1c1f292e85fda8f2fd76eca0e4d16bec621';
 
   console.log(_url);
   $.ajax({
@@ -27,7 +28,8 @@ var getMeeting = function(state, hobby) {
     .done(function(data) {
       def.resolve(data);
       console.log("successeful getMeetings() ajax call");
-      logData(data);
+
+      //logData(data);
       //return data;
     })
     .fail(function() {
@@ -45,20 +47,22 @@ var logData = function(data) {
 
   var meetups = data.results; //array of meetups
   //build out card
-  var _m = meetups[0];
-  console.log("EventName: " + _m.name);
-  console.log("link: " +
-    _m.event_url)
-  console.log("status" +
-    _m.status);
-  console.log("time" +
-    _m.time); //convert this from UTC with UTC offset;
+  if (meetups.length > 0) {
+    var _m = meetups[0];
+    console.log("EventName: " + _m.name);
+    console.log("link: " +
+      _m.event_url)
+    console.log("status" +
+      _m.status);
+    console.log("time" +
+      _m.time); //convert this from UTC with UTC offset;
 
-  var group = _m.group;
-  console.log("Group Lat: " +
-    group.group_lat);
-  console.log("Group Lon: " +
-    group.group_lon);
-  console.log("Group Name: " +
-    group.name);
+    var group = _m.group;
+    console.log("Group Lat: " +
+      group.group_lat);
+    console.log("Group Lon: " +
+      group.group_lon);
+    console.log("Group Name: " +
+      group.name);
+  }
 }

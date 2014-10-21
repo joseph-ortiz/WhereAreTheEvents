@@ -38,6 +38,7 @@ var getLocation = function() {
 
 function initialize() {
   var myOptions = {
+    scrollwheel: false,
     zoom: 10,
     center: new google.maps.LatLng(-33.9, 151.2),
     mapTypeId: google.maps.MapTypeId.ROADMAP
