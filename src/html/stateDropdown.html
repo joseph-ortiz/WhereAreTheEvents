@@ -1,22 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta name="viewport" content="initial-scale=1.0">
-    <meta charset="utf-8">
-    <title>Where are the Events? - Home</title>
-    <link href="dist/css/main.css" rel="stylesheet" type="text/css">
-  </head>
-  <body>
-    <header id="header">
-      <div class="topnav">
-        <ul class="nav">
-          <li class="item"><a></a></li>
-          <li class="item center">
-            <h1>Where are the Events?</h1>
-          </li>
-          <li>
-            <div class="search">
-              <!--input#place.search(placeholder="Enter your Zip/State...")--><select id="state" name="state" size="1">
+<select id="state" name="state" size="1">
   <option value="AL">Alabama</option>
   <option value="AK">Alaska</option>
   <option value="AZ">Arizona</option>
@@ -69,37 +51,3 @@
   <option value="WI">Wisconsin</option>
   <option value="WY">Wyoming</option>
 </select>
-
-              <input id="hobby" placeholder="Enter A Hobby..." class="search">
-              <button id="searchButton" class="search">Search</button>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </header>
-    <div id="content">
-      <div class="steps">
-        <ol>
-          <li class="one">Enter your state</li>
-          <li class="two">Enter your hobby</li>
-          <li class="three">Click search</li>
-          <li class="four">Find out meetups nearby!</li>
-        </ol>
-        <button class="ok">hide</button>
-      </div>
-      <section class="map">
-        <div id="map-canvas"></div>
-        <!--TODO:show on desktop but hide on mobile-->
-      </section>
-      <div class="results">
-        <ul class="results"></ul>
-      </div>
-    </div>
-    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-    <script src="dist/components/jquery/dist/jquery.js"></script>
-    <script src="dist/js/lodash.js"></script>
-    <script src="dist/js/googleMaps.js"></script>
-    <script src="dist/js/meetup.js"></script>
-    <script src="dist/js/app.js"></script>
-  </body>
-</html>

@@ -27,7 +27,7 @@ var target = {
 /*******************************************************************************
  JADE/HTML TASK
 *******************************************************************************/
-gulp.task('templates', function() {
+gulp.task('jade', function() {
   return gulp.src(paths.jade)
     .pipe(plumber())
     .pipe(jade({
@@ -115,7 +115,7 @@ gulp.task('browser-sync', function() {
 
 
 gulp.task('default', ['browser-sync'], function() {
-  gulp.run('templates', 'css', 'sass', 'js');
+  gulp.run('jade', 'css', 'sass', 'js');
 
   gulp.watch(paths.sass_src, function() {
     gulp.run('sass');
@@ -125,7 +125,7 @@ gulp.task('default', ['browser-sync'], function() {
   });
 
   gulp.watch(paths.jade, function() {
-    gulp.run('templates');
+    gulp.run('jade');
     reload();
   });
 
