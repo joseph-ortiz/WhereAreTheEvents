@@ -13,12 +13,17 @@ html(lang="en")
             a
           li.item.center
             h1 Where are the Events?
+          li
+            div.search
+              input#place.search(placeholder="Enter your Zip/State...")
+              input#hobby.search(placeholder="Enter A Hobby...")
+              button#searchButton.search Search
     #content
       block content
 
     script(src="https://maps.googleapis.com/maps/api/js?v=3.exp")
     script(src="dist/components/jquery/dist/jquery.js")
+    script(src="dist/js/lodash.js")
     script(src="dist/js/googleMaps.js")
     script(src="dist/js/meetup.js")
-    script(src="dist/js/lodash.js")
     script(src="dist/js/app.js")
