@@ -1,31 +1,30 @@
 //TODO:add funcitonality to handle failed GoogleMAPS call!
-//TOOD:add fail 404.
+//TODO:add fail 404.
 //(function() {
 
 var getPosition = function(options) {
-  var _d = $.Deferred();
-  navigator.geolocation.getCurrentPosition(getCoords,
+  var d = $.Deferred();
+  navigator.geolocation.getCurrentPosition(function(position) { //TODO: factor into named function
+      var _d = $.Deferred(); //TODO:Check if I need to even create a 2nd deferred?
+      console.log(position);
+      var latlng = new google.maps.LatLng(
+        position.coords.latitude,
+        position.coords.longitude);
+
+      var geoCoder = new google.maps.Geocoder();
+      geoCoder.geocode({
+        location: latlng
+      }, function() {
+        _d.resolve(latlng); //resolve SuccessFunction's promise
+      })
+      d.resolve(latlng); //resolve GetPosition function()
+      return _d.promise();
+    },
     null,
     options);
-  return _d.promise();
+  return d.promise();
 };
 
-
-var getCoords = function(position) {
-  var _d = $.Deferred();
-
-  console.log(position);
-  var latlng = new google.maps.LatLng(
-    position.coords.latitude,
-    position.coords.longitude);
-
-  var geoCoder = new google.maps.Geocoder();
-  geoCoder.geocode({
-    location: latlng
-  }, logResults)
-
-  return _d.promise();
-}
 
 var logResults = function(results, status) {
   // here you can look through results ...
@@ -33,7 +32,7 @@ var logResults = function(results, status) {
 }
 
 var getLocation = function() {
-  getPosition().then(getCoords).done(logResults);
+  return getPosition()
 }
 
 function initialize() {

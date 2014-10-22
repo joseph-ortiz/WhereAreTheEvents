@@ -11,6 +11,10 @@ var validate = function() {
   return isValid;
 }
 
+var initGoogleMaps = function() {
+  google.maps.event.addDomListener(window, 'load', initialize);
+}
+
 $(document).ready(function() {
   //TODO:Implement Require.js
   //TODO: get user location
@@ -24,8 +28,10 @@ $(document).ready(function() {
     validate();
   });
 
-  $.when(google.maps.event.addDomListener(window, 'load', initialize))
-    .then(function(data, textStatus, jqXHR) {
+  $.when(initGoogleMaps)
+    .then(getLocation)
+    .done(function(crapDone) {
+      alert("crapDone" + crapDone);
       //alert(jqXHR.status); // Alerts 200
       $("#searchButton").click(function() {
         //TODO:Get inputs
