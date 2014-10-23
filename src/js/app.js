@@ -28,7 +28,7 @@ $(document).ready(function() {
     validate();
   });
 
-  $.when(initGoogleMaps)
+  $.when(initGoogleMaps())
     .then(getLocation)
     .done(function(crapDone) {
       alert("crapDone" + crapDone);
