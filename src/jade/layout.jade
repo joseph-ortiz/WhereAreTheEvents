@@ -9,11 +9,18 @@ html(lang="en")
   body
     header#header
         nav.nav
-          a.nav.title Where are the Events?
-          //input#place.search(placeholder="Enter your Zip/State...")
+    div.banner-gradient
+      div.banner
+        span.title
+          h1 Where are the Events?
+        //input#place.search(placeholder="Enter your Zip/State...")
+        div.search-form
           include ../html/stateDropdown.html
           input#hobby.search.nav(placeholder="Enter A Hobby...")
+          input#zip.search.nav(placeholder="zip")
           button#searchButton.search.nav Search
+
+
     #content
       block content
 

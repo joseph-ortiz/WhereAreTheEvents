@@ -1,6 +1,6 @@
-var getMeeting = function(state, hobby) {
+var getMeeting = function(zip, state, hobby) {
   var def = $.Deferred();
-
+  alert(zip);
   var _url = 'http://api.meetup.com/2/open_events?' +
     'status=upcoming' +
     '&radius=25.0' +
@@ -13,7 +13,7 @@ var getMeeting = function(state, hobby) {
     '&offset=0' +
     '&photo-host=public' +
     '&format=json' +
-    '&zip=30097' +
+    '&zip=' + zip + //"30097" +
     '&page=20' +
     '&key=6e10506a7034b58723d3d18151415e';
   //'&sig_id=64460512' +

@@ -18,7 +18,7 @@ var initGoogleMaps = function() {
 
 $(document).ready(function() {
   //TODO:Implement Require.js
-  //TODO: get user location
+
   //TODO: center map to user location
   //TODO: create list
   //TODO: map location on google Maps
@@ -46,11 +46,13 @@ $(document).ready(function() {
 
       //console.log(jqXHR.status); // Alerts 200
       $("#searchButton").click(function() {
+        $("ul.results").empty();
         //TODO:Get inputs
         console.log("SearchButton Clicked! ");
         var place = $("#state").val();
         var hobby = $("#hobby").val();
-        var meetupResults = getMeeting(place, hobby); //TODO:search Get meetings;//TODO: query meetupAPI
+        var zip = $("#zip").val();
+        var meetupResults = getMeeting(zip, place, hobby); //TODO:search Get meetings;//TODO: query meetupAPI
         meetupResults.then(function(data) {
           $("ul.results").empty();
           console.log("meetup result complete");
@@ -82,10 +84,22 @@ $(document).ready(function() {
             var latilongi = new google.maps.LatLng(meetupEvent.lat, meetupEvent.lon);
             //var myLatlng = new google.maps.LatLng(-25.363882, 131.044922);
 
+
+
+            var contentString =
+              '<h1>' + meetupEvent.name + '</h1>';
+
+            var infowindow = new google.maps.InfoWindow({
+              content: contentString
+            });
+
             var marker = new google.maps.Marker({
               position: latilongi,
               title: meetupEvent.name,
               map: map
+            });
+            google.maps.event.addListener(marker, 'click', function() {
+              infowindow.open(map, marker);
             });
 
             markerList.push(marker);

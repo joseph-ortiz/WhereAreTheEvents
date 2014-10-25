@@ -4,24 +4,24 @@ var gulp = require('gulp'),
   plumber = require('gulp-plumber'),
   browserSync = require('browser-sync'),
   notify = require('gulp-notify'), // send notifications to osx
-  autoprefixer = require('gulp-autoprefixer');
+  autoprefixer = require('gulp-autoprefixer'),
+  jpegoptim = require('imagemin-jpegoptim'); //TODO: find out how to optomize this image
 
 var reload = browserSync.reload;
-
 
 var paths = {
   js: 'src/js/*.js',
   css: 'src/css/*.css',
   sass_src: 'src/sass/*.scss',
-  jade: 'src/jade/index.jade'
-
+  jade: 'src/jade/index.jade',
+  images: 'src/images/*.png'
 };
 
 var target = {
   css: 'dist/css',
   html: 'dist/',
-  js: 'dist/js/'
-
+  js: 'dist/js/',
+  images: 'dist/images'
 };
 
 /*******************************************************************************
@@ -101,6 +101,16 @@ gulp.task('js', function() {
 
 
 /*******************************************************************************
+ Images TASK
+*******************************************************************************/
+
+
+gulp.task('images', function() {
+  gulp.src('src/images/**/*.{png,jpg,jpeg,gif,svg}')
+    .pipe(gulp.dest('dist/images'));
+});
+
+/*******************************************************************************
  BROWSER SYNC
 *******************************************************************************/
 
@@ -115,7 +125,7 @@ gulp.task('browser-sync', function() {
 
 
 gulp.task('default', ['browser-sync'], function() {
-  gulp.run('jade', 'css', 'sass', 'js');
+  gulp.run('jade', 'css', 'sass', 'js', 'images');
 
   gulp.watch(paths.sass_src, function() {
     gulp.run('sass');
@@ -131,6 +141,11 @@ gulp.task('default', ['browser-sync'], function() {
 
   gulp.watch(paths.js, function() {
     gulp.run('js');
+    reload();
+  });
+
+  gulp.watch(paths.images, function() {
+    gulp.run('images');
     reload();
   });
 

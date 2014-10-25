@@ -8,8 +8,13 @@ html, body, #content {
 div#map-canvas {
   height: 450px; }
 
+nav.nav {
+  /* top-nav 2: */
+  background: #3878c7;
+  border-bottom: 1px solid #979797; }
+
 header#header {
-  background: #fafafa;
+  background: #3878c7;
   box-shadow: 0 4px 0 rgba(0, 0, 0, 0.25);
   position: absolute;
   z-index: 5;
@@ -32,6 +37,39 @@ nav button.search {
   color: black; }
 nav button.search {
   outline: none; }
+
+div.banner-gradient {
+  background: rgba(215, 215, 215, 0.18);
+  border: 1px solid #979797;
+  height: 300px; }
+
+div.banner {
+  background-image: url("./../images/road.png");
+  height: 300px;
+  position: relative;
+  background-size: cover;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  resize: both;
+  overflow: auto; }
+  div.banner span .title {
+    font-size: large;
+    width: 50%;
+    padding: 20px;
+    resize: both; }
 
 div.steps {
   display: none;

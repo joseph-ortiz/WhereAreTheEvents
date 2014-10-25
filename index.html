@@ -9,8 +9,13 @@
   </head>
   <body>
     <header id="header">
-      <nav class="nav"><a class="nav title">Where are the Events?</a>
-        <!--input#place.search(placeholder="Enter your Zip/State...")--><select id="state" class="state-dropdown" name="state" size="1">
+      <nav class="nav"></nav>
+    </header>
+    <div class="banner-gradient">
+      <div class="banner"><span class="title">
+          <h1>Where are the Events?</h1></span>
+        <!--input#place.search(placeholder="Enter your Zip/State...")-->
+        <div class="search-form"><select id="state" class="state-dropdown" name="state" size="1">
   <option value="AL">Alabama</option>
   <option value="AK">Alaska</option>
   <option value="AZ">Arizona</option>
@@ -64,10 +69,12 @@
   <option value="WY">Wyoming</option>
 </select>
 
-        <input id="hobby" placeholder="Enter A Hobby..." class="search nav">
-        <button id="searchButton" class="search nav">Search</button>
-      </nav>
-    </header>
+          <input id="hobby" placeholder="Enter A Hobby..." class="search nav">
+          <input id="zip" placeholder="zip" class="search nav">
+          <button id="searchButton" class="search nav">Search</button>
+        </div>
+      </div>
+    </div>
     <div id="content">
       <div class="steps">
         <ol>
