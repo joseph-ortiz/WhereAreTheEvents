@@ -35,17 +35,23 @@ var getLocation = function() {
   return getPosition()
 }
 
-function initialize() {
+function initialize(location) {
   var myOptions = {
     scrollwheel: false,
     zoom: 10,
     center: new google.maps.LatLng(-33.9, 151.2),
     mapTypeId: google.maps.MapTypeId.ROADMAP
   }
+
+  if (location !== null) {
+    myOptions.center = new google.maps.LatLng(location[1], location[2]);
+  }
+
   var map = new google.maps.Map(document.getElementById("map-canvas"),
     myOptions);
 
-  setMarkers(map, beaches);
+
+  setMarkers(map, location);
 }
 
 /**

@@ -30,8 +30,13 @@ $(document).ready(function() {
 
   $.when(initGoogleMaps())
     .then(getLocation)
-    .done(function(crapDone) {
+    .then(function(crapDone) {
+      alert("then has been hit")
       alert("crapDone" + crapDone);
+      initialize(['home', crapDone.lat(), crapDone.lng()]);
+    })
+    .done(function(crapDone) {
+      alert("done has been hit!");
       //alert(jqXHR.status); // Alerts 200
       $("#searchButton").click(function() {
         //TODO:Get inputs
