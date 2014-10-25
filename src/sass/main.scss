@@ -3,6 +3,8 @@
   //border: 1px solid red;
 
 }
+$purple: rgb(142, 114, 191);
+
 html,
 body,
 #content {
@@ -24,39 +26,29 @@ header#header {
   top: 0;
   left: 0;
   width: 100%;
-  height: 95px;
+  height: 30px;
   text-align: center;
-}
-div.topnav {
-  position: relative;
-  width: 100%;
 
 }
-ul.nav {
-  list-style: none;
-  margin: 0;
-  padding: 10px 0;
-  //text-align: center;
-
-  li:firstchild {
-    //  border-left: none;
-
+nav {
+  .title {
+    font-size: medium;
   }
-  li {
-    display: inline-block;
-    min-width: 80px;
-    //padding: 6px 40px;
-    position: relative;
-    vertical-align: top;
-    //  border-left: 1px solid #d9d9d9;
-
+  .state-dropdown {
+    width: 7em;
+    border-radius: 0;
   }
-  li.item.center {
-    display: inline-block;
-    font-size: 17px;
-    line-height: 18px;
-    margin: -1px 0 0;
-    padding: 0;
+  input {
+    width: 7em;
+  }
+  button.search {
+    //border: 1px solid red;
+    width: 100%;
+    background: $purple;
+    color: black;
+  }
+  button.search {
+    outline: none;
   }
 
 }
@@ -70,24 +62,5 @@ div.steps {
     border: none;
     width: 100%;
     height: 40px;
-  }
-
-}
-div.search {
-  text-align: center;
-  height: 25px;
-  width: 100%;
-  //position: absolute;
-  //bottom: 60px;
-  input {
-    border: 1px solid grey;
-    width: 100%;
-    text-align: center;
-    position: relative;
-
-  }
-  button {
-    width: 100%;
-    position: relative;
   }
 }

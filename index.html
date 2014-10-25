@@ -4,19 +4,13 @@
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     <title>Where are the Events? - Home</title>
+    <link href="dist/components/normalize.css/normalize.css" rel="stylesheet" type="text/css">
     <link href="dist/css/main.css" rel="stylesheet" type="text/css">
   </head>
   <body>
     <header id="header">
-      <div class="topnav">
-        <ul class="nav">
-          <li class="item"><a></a></li>
-          <li class="item center">
-            <h1>Where are the Events?</h1>
-          </li>
-          <li>
-            <div class="search">
-              <!--input#place.search(placeholder="Enter your Zip/State...")--><select id="state" name="state" size="1">
+      <nav class="nav"><a class="nav title">Where are the Events?</a>
+        <!--input#place.search(placeholder="Enter your Zip/State...")--><select id="state" class="state-dropdown" name="state" size="1">
   <option value="AL">Alabama</option>
   <option value="AK">Alaska</option>
   <option value="AZ">Arizona</option>
@@ -70,12 +64,9 @@
   <option value="WY">Wyoming</option>
 </select>
 
-              <input id="hobby" placeholder="Enter A Hobby..." class="search">
-              <button id="searchButton" class="search">Search</button>
-            </div>
-          </li>
-        </ul>
-      </div>
+        <input id="hobby" placeholder="Enter A Hobby..." class="search nav">
+        <button id="searchButton" class="search nav">Search</button>
+      </nav>
     </header>
     <div id="content">
       <div class="steps">

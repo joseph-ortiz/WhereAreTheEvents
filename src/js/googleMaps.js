@@ -35,6 +35,7 @@ var getLocation = function() {
   return getPosition()
 }
 
+
 function initialize(location) {
   var myOptions = {
     scrollwheel: false,
@@ -49,7 +50,6 @@ function initialize(location) {
 
   var map = new google.maps.Map(document.getElementById("map-canvas"),
     myOptions);
-
 
   setMarkers(map, location);
 }

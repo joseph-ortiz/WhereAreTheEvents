@@ -4,21 +4,16 @@ html(lang="en")
     meta(name="viewport", content="initial-scale=1.0")
     meta(charset="utf-8")
     title Where are the Events? - Home
+    link(href="dist/components/normalize.css/normalize.css", rel="stylesheet", type="text/css")
     link(href="dist/css/main.css", rel="stylesheet", type="text/css")
   body
     header#header
-      div.topnav
-        ul.nav
-          li.item
-            a
-          li.item.center
-            h1 Where are the Events?
-          li
-            div.search
-              //input#place.search(placeholder="Enter your Zip/State...")
-              include ../html/stateDropdown.html
-              input#hobby.search(placeholder="Enter A Hobby...")
-              button#searchButton.search Search
+        nav.nav
+          a.nav.title Where are the Events?
+          //input#place.search(placeholder="Enter your Zip/State...")
+          include ../html/stateDropdown.html
+          input#hobby.search.nav(placeholder="Enter A Hobby...")
+          button#searchButton.search.nav Search
     #content
       block content
 
