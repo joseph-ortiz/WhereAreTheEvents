@@ -11,14 +11,15 @@ html(lang="en")
         nav.nav
     div.banner-gradient
       div.banner
-        span.title
-          h1 Where are the Events?
-        //input#place.search(placeholder="Enter your Zip/State...")
+        div.title
+          h1.title Where are the Events?
         div.search-form
-          include ../html/stateDropdown.html
-          input#hobby.search.nav(placeholder="Enter A Hobby...")
-          input#zip.search.nav(placeholder="zip")
+          input#hobby.search.nav(placeholder="Enter A topic")
+          input#zip.search.nav(placeholder="Zip Code")
           button#searchButton.search.nav Search
+    section.section-1
+      p Easily find Meetup events based off of your location.
+      p Powered by GoogleMaps API and MeetupAPI
 
 
     #content
