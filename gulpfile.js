@@ -4,9 +4,7 @@ var gulp = require('gulp'),
   plumber = require('gulp-plumber'),
   browserSync = require('browser-sync'),
   notify = require('gulp-notify'), // send notifications to osx
-  autoprefixer = require('gulp-autoprefixer'),
-  jpegoptim = require('imagemin-jpegoptim'); //TODO: find out how to optomize this image
-
+  autoprefixer = require('gulp-autoprefixer');
 var reload = browserSync.reload;
 
 var paths = {
@@ -24,16 +22,6 @@ var target = {
   images: 'dist/images'
 };
 
-
-var imageop = require('gulp-image-optimization');
-
-gulp.task('images', function(cb) {
-  gulp.src(['src/**/*.png', 'src/**/*.jpg', 'src/**/*.gif', 'src/**/*.jpeg']).pipe(imageop({
-    optimizationLevel: 3,
-    progressive: true,
-    interlaced: true
-  })).pipe(gulp.dest('dist/images')).on('end', cb).on('error', cb);
-});
 
 
 /*******************************************************************************

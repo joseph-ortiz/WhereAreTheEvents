@@ -19,7 +19,7 @@ body,
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
-  background-color: skyblue;
+  //background-color: skyblue;
 
 }
 input {
@@ -55,8 +55,8 @@ div.banner-gradient {
 
 }
 div.banner {
-  //background-image: url("./../images/road_full.jpeg");
-  background-color: skyblue;
+  background-image: url("./../images/road_full.jpg");
+  //background-color: skyblue;
   height: 260px;
   background-size: cover;
   padding: 20px;

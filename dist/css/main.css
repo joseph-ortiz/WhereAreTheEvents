@@ -9,8 +9,7 @@ html, body, #content {
   height: 90%;
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
-  background-color: skyblue; }
+  font-family: 'Roboto', sans-serif; }
 
 input {
   resize: none;
@@ -41,7 +40,7 @@ div.banner-gradient {
   height: 300px; }
 
 div.banner {
-  background-color: skyblue;
+  background-image: url("./../images/road_full.jpg");
   height: 260px;
   background-size: cover;
   padding: 20px;
@@ -135,5 +134,5 @@ ul.results {
       background-color: black;
       font-size: 1.2em;
       border: 1px solid black;
-      line-height: 1;
+      line-height: 2;
       text-align: left; }
