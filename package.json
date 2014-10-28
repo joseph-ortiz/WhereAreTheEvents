@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/joseph-ortiz/WhereAreTheEvents",
   "dependencies": {
-    "gulp": "^3.5.6",
+    "gulp": "^3.8.9",
     "gulp-jade": "^0.8.0",
     "jade": "*",
     "gulp-sass": "^1.2.0",
@@ -29,5 +29,8 @@
     "imagemin-jpegoptim": "^4.0.0",
     "imagemin-pngquant": "^4.0.0",
     "imagemin-optipng": "^4.0.0"
+  },
+  "devDependencies": {
+    "gulp-image-optimization": "^0.1.3"
   }
 }

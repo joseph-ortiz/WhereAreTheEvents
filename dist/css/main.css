@@ -9,7 +9,8 @@ html, body, #content {
   height: 90%;
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif; }
+  font-family: 'Roboto', sans-serif;
+  background-color: skyblue; }
 
 input {
   resize: none;
@@ -37,11 +38,10 @@ header#header {
 
 div.banner-gradient {
   background: rgba(215, 215, 215, 0.18);
-  border: 1px solid #979797;
   height: 300px; }
 
 div.banner {
-  background-image: url("./../images/road_full.jpeg");
+  background-color: skyblue;
   height: 260px;
   background-size: cover;
   padding: 20px;
@@ -54,8 +54,8 @@ div.title {
   width: 100%; }
 
 h1.title {
-  color: #72bfb1;
-  -webkit-text-stroke: 1px black; }
+  color: white;
+  font-size: 2.5em; }
 
 .search-form {
   margin: 0 auto;
@@ -83,7 +83,8 @@ h1.title {
   line-height: 1.2;
   padding: 1.1em;
   font-size: large;
-  text-align: center; }
+  text-align: center;
+  background-color: #8e72bf; }
 
 /***********************
  Google Maps Area
@@ -119,7 +120,8 @@ ul.results {
     display: inline;
     margin: 1em auto;
     border-radius: 20px;
-    background-color: white; }
+    background-color: white;
+    color: white; }
     ul.results li div.item {
       border: 1px solid black;
       width: 100%;
@@ -130,7 +132,8 @@ ul.results {
       display: block; }
     ul.results li span.name {
       display: block;
-      background-color: #3878c7;
+      background-color: black;
       font-size: 1.2em;
       border: 1px solid black;
-      line-height: normal; }
+      line-height: 1;
+      text-align: left; }

@@ -24,6 +24,18 @@ var target = {
   images: 'dist/images'
 };
 
+
+var imageop = require('gulp-image-optimization');
+
+gulp.task('images', function(cb) {
+  gulp.src(['src/**/*.png', 'src/**/*.jpg', 'src/**/*.gif', 'src/**/*.jpeg']).pipe(imageop({
+    optimizationLevel: 3,
+    progressive: true,
+    interlaced: true
+  })).pipe(gulp.dest('dist/images')).on('end', cb).on('error', cb);
+});
+
+
 /*******************************************************************************
  JADE/HTML TASK
 *******************************************************************************/
