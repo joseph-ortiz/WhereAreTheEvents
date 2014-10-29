@@ -36,7 +36,9 @@ $(document).ready(function() {
   //TODO: get times for events
   //TODO: reduce the size of the google maps image. Unnecessarily large. googlemaps opttion?
   //TODO: minify for production
+  //TODO: change meetup URL to semantic anchor tags instead of span tags. yuck.
   validate();
+  $('#content').hide()
   $("#zip , #hobby").keypress(function() {
     validate();
   });
@@ -134,6 +136,7 @@ $(document).ready(function() {
 
         }).then(function() {
           $('span').linkify();
+          $('#content').show();
           console.log("linkify here");
         });
 
