@@ -132,9 +132,15 @@ $(document).ready(function() {
           //map.getBounds().contains(markerList[markerList.length].getPosition())
           //  marker.setMap(map);
 
+        }).then(function() {
+          $('span').linkify();
+          console.log("linkify here");
         });
 
       });
+
+
+
 
     });
 

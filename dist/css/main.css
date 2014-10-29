@@ -54,7 +54,8 @@ div.title {
 
 h1.title {
   color: white;
-  font-size: 2.5em; }
+  font-size: 3.5em;
+  text-shadow: 0 1px 1px black, 0 2px 1px black; }
 
 .search-form {
   margin: 0 auto;
@@ -125,7 +126,8 @@ ul.results {
       border: 1px solid black;
       width: 100%;
       margin: 1em auto;
-      border-radius: 4px; }
+      border-radius: 4px;
+      color: black; }
     ul.results li span {
       line-height: 2em;
       display: block; }
@@ -135,4 +137,5 @@ ul.results {
       font-size: 1.2em;
       border: 1px solid black;
       line-height: 2;
-      text-align: left; }
+      text-align: left;
+      color: white; }

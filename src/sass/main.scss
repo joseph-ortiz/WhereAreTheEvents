@@ -74,8 +74,8 @@ h1.title {
   //color: rgb(114, 191, 177);
   color: white;
   //-webkit-text-stroke: 0.5px black;
-  font-size: 2.5em;
-
+  font-size: 3.5em;
+  text-shadow: 0 1px 1px black, 0 2px 1px black;
 }
 .search-form {
   margin: 0 auto;
@@ -150,6 +150,7 @@ ul.results {
   -webkit-margin-end: 0;
   -webkit-padding-start: 0;
   display: inline-block;
+
   li {
     display: inline;
     margin: 1em auto;
@@ -162,6 +163,7 @@ ul.results {
       width: 100%;
       margin: 1em auto;
       border-radius: 4px;
+      color: black;
     }
     span {
       line-height: 2em;
@@ -175,6 +177,7 @@ ul.results {
       border: 1px solid black;
       line-height: 2;
       text-align: left;
+      color: white;
     }
   }
 }
