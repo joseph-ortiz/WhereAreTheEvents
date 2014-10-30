@@ -38,7 +38,7 @@ $(document).ready(function() {
   //TODO: minify for production
   //TODO: change meetup URL to semantic anchor tags instead of span tags. yuck.
   validate();
-  $('#content').hide()
+  $('#content').hide();
   $("#zip , #hobby").keypress(function() {
     validate();
   });
